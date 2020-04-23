@@ -8,7 +8,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - /drone/src/compose_volume/sakila-schema.sql:/docker-entrypoint-initdb.d/sakila-schema.sql
+      - /tmp/docker_compose_volume/sakila-schema.sql:/docker-entrypoint-initdb.d/sakila-schema.sql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: drone_demo

@@ -3,9 +3,13 @@ pipeline:
     image: docker/compose
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/docker_compose_volume:/tmp/docker_compose_volume
     secrets: [mysql_root_password, mysql_database, mysql_user, mysql_password]
     commands:
       - cd compose_volume
+      - pwd
+      - ls -ll
+      - cp./sakila-schema.sql /tmp/docker_compose_volume
       - docker-compose stop
       - docker-compose rm -f
       - docker-compose up -d

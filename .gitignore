@@ -1,0 +1,20 @@
+target/
+buildtools/closure
+build/
+node_modules/
+.settings/
+index.html
+projects/restfulservices/src/main/webapp/WEB-INF/web.xml
+Web.config
+
+.idea
+**/*.iml
+
+# Misc
+**/*.log
+**/test-results-*.html
+buildtools/git-describe
+
+# Never ever ever ... EVER commit these files
+**/.env
+

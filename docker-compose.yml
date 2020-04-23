@@ -1,0 +1,27 @@
+version: "3.0"
+services:
+  drone_server:
+    image: drone/drone:1.1.0
+    container_name: drone-server
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - DRONE_GITHUB_CLIENT_ID
+      - DRONE_GITHUB_CLIENT_SECRET
+      - DRONE_RPC_SECRET
+      - DRONE_SERVER_HOST
+      - DRONE_SERVER_PROTO
+      - DRONE_USER_CREATE
+      - DRONE_AGENTS_ENABLED=true
+      - DRONE_TLS_AUTOCERT=false
+  drone_agent:
+    image: drone/agent:1.1.0
+    container_name: drone-agent
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_RPC_SERVER
+      - DRONE_RPC_SECRET
+      - DRONE_RUNNER_CAPACITY=2
